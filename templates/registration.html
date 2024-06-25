@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-image: url('/static/newvan.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            color: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            border: 2px solid #fff; /* White border */
+            align-items: center; /* Center horizontally */
+            top:50%;
+            right:60px;
+            transform: translate(95%,-5%);
+
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Text shadow for readability */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px); /* Adjust width to fill container */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            color: #333; /* Text color */
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* White glow on focus */
+        }
+
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #333; /* Darker color on hover */
+        }
+
+        #map {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="container">
+        <h2>Pickup Point</h2>
+        <form action="#" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="Phone" pattern="[0-9]{1,10}" required>
+                <small>Only digits (0-9) allowed, maximum 10 characters.</small>
+            </div>
+            <div class="form-group">
+                <label for="place">Place:</label>
+                <input type="text" name="Place" placeholder="Place" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="text" name="Time" required>    
+            </div>
+            <button id="map-btn" class="btn">Open Map</button>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <a href="/dashboard" class="btn-back" style="color: black;width: 50px;"><b>Back</b></a>
+
+    </div>
+    
+    <script>
+        // Geolocation and map code remains unchanged
+
+        const mapBtn = document.getElementById("map-btn");
+
+        mapBtn.addEventListener("click", () => {
+            const googleMapsUrl = "https://www.google.com/maps/place/Your+Place+Name";
+            const mapWindow = window.open(googleMapsUrl, "_blank");
+
+            if (mapWindow) {
+                mapWindow.focus();
+            }
+        });
+
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var place = document.getElementsByName("Place")[0].value;
+            var timing = document.getElementsByName("Time")[0].value;
+
+            if (name.trim() === "" || phone.trim() === "" || place.trim() === "" || timing.trim() === "") {
+                alert("All fields are required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

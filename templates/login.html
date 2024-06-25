@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style> 
+    body {
+      
+      color: rgba(6, 0, 9, 0.784);
+      background-color: rgba(55, 27, 181, 0.468); 
+      padding: 20px;
+      margin: 0 auto;
+      width: 400px;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 30px;
+      background-image: url('/static/ef.jpg');
+      background-size: 101%;
+      background-position-y: 5998.5%;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+    }
+
+    .login-box {
+      border: 2px solid #000000;
+      background-image: transparent;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+      width: 400px; /* Adjust the width as needed */
+    }
+
+    .inputbox {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .inputbox input {
+      position: relative;
+      width: 100%;
+      padding: 20px 10px 10px;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      color: #23242a;
+      font-size: 1em;
+      letter-spacing: 0.05em;
+      transition: 0.5s;
+      z-index: 10;
+      
+    }
+
+    .inputbox span {
+      position: absolute;
+      left: 0;
+      padding: 15px 10px 10px;
+      font-size: 1em;
+      color: #f1dede;
+      letter-spacing: 0.05em;
+      transition: 0.5s;
+      pointer-events: none;
+    }
+
+    .inputbox input:valid ~span,
+    .inputbox input:focus ~span {
+      color: #fefafa;
+      transform: translateX(-12px) translateY(-35px);
+      font-size: 1em;
+    }
+
+    .inputbox i {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #d4cccc;
+      border-radius: 4px;
+      transition: 0.5s;
+      pointer-events: none;
+      z-index: 9;
+    }
+
+    .inputbox input:valid ~i,
+    .inputbox input:focus ~i {
+      height: 44px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-6 mt-4 login-box">
+      <h2 style="color: rgb(243, 236, 236)";>​🇱​​🇴​​🇬​​🇮​​🇳​​ ​🇭​​🇪​​🇷​​🇪​​:</h2>
+      <br>
+      <form action="/login" method="POST">
+        <div class="inputbox">
+          <input type="email" required="required" id="email" name="email">
+          <span>Email</span>
+          <br>
+          <i></i>
+        </div>
+        <div class="inputbox">
+          <input type="password" required="required" id="password" name="password">
+          <span>Password</span>
+          <br>
+          <i></i>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+        <a href="/register" class="btn btn-dark">Register</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+<link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+<div class="hero">
+    <video autoplay loop muted plays-inline class="back-video">
+    <source src="/static/one.mp4" type="video/mp4">
+    </video>
+    <nav>
+    <img src="/static/logo.png" class="logo">
+    <ul class="nav-links">
+        <li><a href="/ ">Home</a></li>
+        <li><a href="about">About us</a></li>
+        <li><a href="/driver_login">DriverLogin</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    </nav>
+    <div class="content">
+    <h1>Commute Craft</h1>
+    <a href="/Reglog">Explore</a>
+    </div>
+</div>
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
